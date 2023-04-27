@@ -7,6 +7,9 @@ import com.expense.management.response.CentralResponse;
 import com.expense.management.utils.BaseResponseUtils;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -25,15 +28,18 @@ public class CentralService {
         expenseDao.save(expense);
     }
 
-    public BaseResponse getExpensesDetails() {
+    public BaseResponse getExpensesDetails(Integer offset, Integer limit) {
         try {
-            List<Expense> expenses = expenseDao.findAll();
+            offset = (offset == null || offset <= 0) ? 0 : offset-1;
+            limit = (limit == null || limit > 10)  ? 10 : limit;
+            Pageable pageable = PageRequest.of(offset, limit);
+            Page<Expense> expenses = expenseDao.findAll(pageable);
 
-            if(CollectionUtils.isEmpty(expenses))
+            if(CollectionUtils.isEmpty(expenses.toList()))
                 return BaseResponseUtils.createNoDataBaseResponse();
 
             return CentralResponse.builder()
-                    .expenses(expenses)
+                    .expenses(expenses.toList())
                     .es(0)
                     .message("success !")
                     .status(200)
