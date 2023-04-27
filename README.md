@@ -1,6 +1,9 @@
 # Expense-Manangement
-This is backend project which is given from TexlaCulture
+If you want clone this project Run the following command
 
+```
+git clone https://github.com/ravi-bala13/Expense-Manangement.git
+```
 
 ## Creating and Starting a Java Spring Boot Project with MongoDB
 This project provides a basic template for creating a Java Spring Boot application that uses MongoDB as the database. Follow the instructions below to create and start the project.
