@@ -5,6 +5,30 @@ If you want clone this project Run the following command
 git clone https://github.com/ravi-bala13/Expense-Manangement.git
 ```
 
+## Curl Calls
+```
+curl -X GET \
+  'http://localhost:8080/central/get-expenses?offset=1&limit=3' \
+  --header 'Accept: */*' \
+  --header 'User-Agent: Thunder Client (https://www.thunderclient.com)'
+  
+```
+```
+curl -X POST \
+  'http://localhost:8080/central/add-expense' \
+  --header 'Accept: */*' \
+  --header 'User-Agent: Thunder Client (https://www.thunderclient.com)' \
+  --header 'Content-Type: application/json' \
+  --data-raw '{
+  "claimType": "kadan",
+  "amount": "1234567",
+  "dateOfExpense": "1999-08-08",
+  "claimMonth": "june",
+  "claimYear": 1999
+}'
+
+```
+
 ## Creating and Starting a Java Spring Boot Project with MongoDB
 This project provides a basic template for creating a Java Spring Boot application that uses MongoDB as the database. Follow the instructions below to create and start the project.
 
