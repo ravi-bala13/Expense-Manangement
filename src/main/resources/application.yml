@@ -1,0 +1,15 @@
+service:
+  name: expense_management
+environment: local
+
+server:
+  port: 8080
+
+mongo-db:
+  name: expense_management
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://ravibala-13:bals1999@cluster0.hfo0i.mongodb.net/?retryWrites=true&w=majority
+      database: expense_management
