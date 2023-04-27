@@ -7,6 +7,7 @@ git clone https://github.com/ravi-bala13/Expense-Manangement.git
 
 ## Curl Calls
 ```
+(instead of localhost:8080 -> you can use deployed link -> https://expense-management.onrender.com/)
 curl -X GET \
   'http://localhost:8080/central/get-expenses?offset=1&limit=3' \
   --header 'Accept: */*' \
@@ -14,6 +15,7 @@ curl -X GET \
   
 ```
 ```
+(instead of localhost:8080 -> you can use deployed link -> https://expense-management.onrender.com/)
 curl -X POST \
   'http://localhost:8080/central/add-expense' \
   --header 'Accept: */*' \
